@@ -46,7 +46,7 @@ void aufgabe2a() {
 
 void aufgabe2b() {
 	int testarray[10];
-	randArray();
+	randArray(testarray, 10, 256);
 }
 
 void aufgabe2c() {
