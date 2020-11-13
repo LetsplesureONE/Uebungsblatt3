@@ -4,19 +4,20 @@
 #include <time.h>
 
 //Makros FTW
-#define MATRIXSIZE 10
+#define MATRIXSIZE 200
 #define ARRAYSIZE 10
 #define CHAR 0
 #define VALUE 1
 #define SEED 5
 
-void gettime() { //not my own ;)
+
+/*void gettime() { //not my own ;)
 	time_t rawtime;
 	struct tm* timeinfo;
 
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
- }
+ }*/
 
 /* Aufgabe – Printausgaben */
 void printArray(const char* array, int length) { 
@@ -41,20 +42,30 @@ void printMatrix(const char matrix[MATRIXSIZE][MATRIXSIZE], int length, int type
 }
 
 /* Aufgabe – Zufallszahlen */
-unsigned char myRand(int max) { 
-	rand();
+unsigned char myrand(int max) { 
+	srand(42);
+	char c = (rand()%max);
+	return c;
 }
 
 void randArray(char* array, int length, int max) { 
-	/* IHR CODE */
+	for (int i = 0; (i + 1) < length; i++) {
+		array[i] = myrand(max);
+	}
 }
 
 void randMatrix(char matrix[MATRIXSIZE][MATRIXSIZE], int length, int max) { 
-	/* IHR CODE */ 
+	for (int i = 0; (i) < length; i++) {
+		for (int j = 0; (j) < length; j++) {
+			matrix[i][j] = myrand(max);
+		}
+	}
 }
 
 void countArray(const char* array, int length, char occurrence[256]) {
-	/* IHR CODE */
+	for (int i = 0; (i + 1) < length; i++) {
+		occurrence[array[i]]++;
+	}
 }
 
 void languageAnalyzer(const char* array, int length, int occurrence[256]) {
