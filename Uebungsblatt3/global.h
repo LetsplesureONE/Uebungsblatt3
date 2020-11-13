@@ -1,26 +1,48 @@
 #pragma once
 #include <stdio.h> 
 #include <stdlib.h>
+#include <time.h>
 
 //Makros FTW
 #define MATRIXSIZE 10
-#define ARRAYSIZE 200
+#define ARRAYSIZE 10
 #define CHAR 0
 #define VALUE 1
 #define SEED 5
 
+void gettime() { //not my own ;)
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+ }
+
 /* Aufgabe – Printausgaben */
 void printArray(const char* array, int length) { 
-	/* IHR CODE */ 
+	for (int i = 0; (i+1) < length; i++) {
+		printf("%d, ", array[i]);
+	}
+	printf("%d", array[length-1]);
 }
 
 void printMatrix(const char matrix[MATRIXSIZE][MATRIXSIZE], int length, int type) {
-	/* IHR CODE */
+	for (int i = 0; (i) < length; i++){
+		for (int j = 0; (j) < length; j++) {
+			if (type) {
+				printf("%d\t", matrix[i][j]);
+			}
+			else {
+				printf("%c", matrix[i][j]);
+			}
+		}
+		printf("\n");
+	}
 }
 
 /* Aufgabe – Zufallszahlen */
 unsigned char myRand(int max) { 
-	/* IHR CODE */ 
+	rand();
 }
 
 void randArray(char* array, int length, int max) { 
