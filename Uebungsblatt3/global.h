@@ -63,13 +63,20 @@ void randMatrix(char matrix[MATRIXSIZE][MATRIXSIZE], int length, int max) {
 }
 
 void countArray(const char* array, int length, char occurrence[256]) {
+	int c;
 	for (int i = 0; (i + 1) < length; i++) {
-		occurrence[array[i]]++;
+		c = array[i];
+		occurrence[c]++;
 	}
 }
 
 void languageAnalyzer(const char* array, int length, int occurrence[256]) {
-	/* IHR CODE */ 
+	int c;
+	for (int i = 0; (i + 1) < length; i++) {
+		c = (array[i]-65);
+		
+		occurrence[c]++;
+	}
 }
 
 /* Aufgabe - Wortspiel */
