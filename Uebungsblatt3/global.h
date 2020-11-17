@@ -10,6 +10,8 @@
 #define VALUE 1
 #define SEED 5
 
+int isLowerCase(char* array, int index);
+int isUpperCase(char* array, int index);
 
 /*void gettime() { //not my own ;)
 	time_t rawtime;
@@ -26,6 +28,12 @@ void printArray(const char* array, int length) {
 	}
 	printf("%d", array[length-1]);
 }
+
+void printArrayOfChars(const char* array, int length) {
+	for (int i = 0; (i) < length; i++) {
+		printf("%c", array[i]);
+	}
+} 
 
 void printMatrix(const char matrix[MATRIXSIZE][MATRIXSIZE], int length, int type) {
 	for (int i = 0; (i) < length; i++){
@@ -66,66 +74,115 @@ void countArray(const char* array, int length, char occurrence[256]) {
 	for (int i = 0; (i + 1) < length; i++) {
 		occurrence[array[i]]++;
 	}
+	for (int i = 0; i < length; i++)
+	{
+		printf("Die Zahl %i kommt %i mal vor\n", i + 1, occurrence[i]);
+	}
 }
 
 void languageAnalyzer(const char* array, int length, int occurrence[256]) {
-	/* IHR CODE */ 
+	char c = 0;
+	for (int i = 0; i < length; i++) {
+		c = 0;
+		int c = array[i];
+		if (array[i]<=96) {
+			occurrence[c]++;
+			printf("%c",c); //??? Ausgabe der falschen chars
+		}
+		else {
+			if (array[i] >= 123) {
+				occurrence[(c+96)]++;
+			}
+			else {
+				occurrence[(c-32)]++;
+			}
+		}
+	}
 }
 
 /* Aufgabe - Wortspiel */
 void setArray(char* array, int length, char value) {
-	/* IHR CODE */ 
+	for (int i = 0; i < length;i++) {
+		array[i] = value;
+		//printf("array[%i]= %i\n", i, array[i]); //debug
+	}
 }
 
 void readInputAsString(char* array, int length) { 
-	/* IHR CODE */ 
+	setArray(array, 25, 0);
+	printf("Please Enter a String ");
+	scanf_s("%s", &array);				//??? Übergabe in array
+	printArray(array, length);
 }
 
-void toUpperCase(char* array, int length) { 
-	/* IHR CODE */ 
+void toUpperCase(char* array, int length) {
+	for (int i = 0; i < length; i++) {
+		if (isLowerCase(array,i)) {
+			array[i] = array[i] - 32;
+		}
+	}
 }
 
 void countUpperCase(char* array, int length) { 
-	/* IHR CODE */ 
+	int counter = 0;
+	for (int i = 0; i < length; i++) {
+		counter = counter + isUpperCase(array,i);
+	}
+	printf("Die ersten %d Stellen enthalten %d Grossbuchstaben.", length, counter);
 }
 
 void toLowerCase(char* array, int length){ 
-	/* IHR CODE */ 
+	for (int i = 0; i < length; i++) {
+		if (isUpperCase(array, i)) {
+			array[i] = array[i] + 32;
+		}
+	}
 }
 
 void countLowerCase(char* array, int length){ 
-	/* IHR CODE */ 
+	int counter = 0;
+	for (int i = 0; i < length; i++) {
+		counter = counter + isLowerCase(array, i);
+	}
+	printf("Die ersten %d Stellen enthalten %d Kleinbuchstaben.", length, counter);
 }
 
-char isUpperCase(char* array, int index){ 
-	/* IHR CODE */ 
+int isUpperCase(char* array, int index){ 
+	if (array[index] >= 65 && array[index] <= 90) {
+		return 1;
+	}
+	return 0;
 }
 
-char isLowerCase(char* array, int index){ 
-	/* IHR CODE */ 
+int isLowerCase(char* array, int index){ 
+	if (array[index] >= 97 && array[index] <= 122) {
+		return 1;
+	}
+	return 0;
 }
 
 void caesarChiffre(const char* array, int length, int shift){ 
-	/* IHR CODE */ 
+	printf("Orginaltext: ");
+	printArrayOfChars(array, length);
+	printf("\nChiffre:     ");
+	char c = 0;
+	for (int i = 0; i < length; i++){
+		c = array[i];
+		if (isUpperCase(array, i)) {
+			c = array[i] + shift;
+			if (!(c >= 65 && c <= 90)) {
+				c = c - 26;
+			}
+		}else{
+			if (isLowerCase(array, i)) {
+				c = array[i] + shift;
+				if (!(c >= 97 && c <= 122)) {
+					c = c - 26;
+				}
+			}
+		}
+		printf("%c",c);
+	}
+	printf("\n");
 }
 
-/* Aufgabe - ASCII Art – Bilder drehen */
-void rotateMatrixRight(char matrix[MATRIXSIZE][MATRIXSIZE], int length){ 
-	/* IHR CODE */ 
-}
-
-void rotateMatrixLeft(char matrix[MATRIXSIZE][MATRIXSIZE], int length){ 
-	/* IHR CODE */ 
-}
-
-// Aufgabe - Sudoku Test
-char lineTest(const char matrix[MATRIXSIZE][MATRIXSIZE], int line, int length){
-	/* IHR CODE */
-}
-char columnTest(const char matrix[MATRIXSIZE][MATRIXSIZE], int column, int length){ 
-	/* IHR CODE */
-}
-
-char sudokuTest(const char matrix[MATRIXSIZE][MATRIXSIZE], int length){ 
-	/* IHR CODE */
-}
