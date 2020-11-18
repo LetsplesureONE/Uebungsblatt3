@@ -20,12 +20,13 @@ void aufgabe3i(void);
 void aufgabe4(void);
 
 int main(void) {
+	srand(42);
 	//aufgabe1a();
 	//aufgabe1b();
 	//aufgabe2a();
 	//aufgabe2b();
 	//aufgabe2c();
-	//aufgabe2d();
+	aufgabe2d();
 	//aufgabe2e();
 	//aufgabe3a();
 	//aufgabe3b();
@@ -34,7 +35,7 @@ int main(void) {
 	//aufgabe3e();
 	//aufgabe3f();
 	//aufgabe3i();
-	aufgabe4();
+	//aufgabe4();
 	return 0;
 }
 
@@ -64,7 +65,8 @@ void aufgabe2a() {
 
 void aufgabe2b() {
 	int testarray[10];
-	randArray(testarray, 10, 256);
+	randArray(testarray, 10, 127);
+	printArray(testarray, 10);
 }
 
 void aufgabe2c() {
@@ -75,7 +77,11 @@ void aufgabe2c() {
 }
 
 void aufgabe2d() {
-
+	int radArray[200];
+	int occurrence[256];
+	setArray(occurrence, 200, 0);
+	randArray(radArray, 200, 127);
+	countArray(radArray, 200, occurrence);
 }
 
 void aufgabe2e() {

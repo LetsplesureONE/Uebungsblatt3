@@ -14,8 +14,10 @@
 // Aufgabe - Sudoku Test
 int lineTest(const char matrix[Gridsize][Gridsize], int line, int length) {
 	int counter = 0; //addieren der einzelnen Feldwerte ==> nur wenn 45 rauskommt, ist die Linie korrekt
+	int value = 0;
 	for (int i = 0; i <= 8; i++) {
-		counter = (counter + matrix[line][i]);
+		value = matrix[line][i]; 
+		counter = (counter + value);
 		printf("Line %i, Field: %i, counter: %i\n",line,i,counter); //debug note
 	}
 	printf("Tested Line: %i Counter: %i\n",line, counter); //debug note

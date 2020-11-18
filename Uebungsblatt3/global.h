@@ -13,6 +13,7 @@
 int isLowerCase(char* array, int index);
 int isUpperCase(char* array, int index);
 
+
 /*void gettime() { //not my own ;)
 	time_t rawtime;
 	struct tm* timeinfo;
@@ -51,13 +52,13 @@ void printMatrix(const char matrix[MATRIXSIZE][MATRIXSIZE], int length, int type
 
 /* Aufgabe – Zufallszahlen */
 unsigned char myrand(int max) { 
-	srand(42);
+	//srand(32);
 	char c = (rand()%max);
 	return c;
 }
 
 void randArray(char* array, int length, int max) { 
-	for (int i = 0; (i + 1) < length; i++) {
+	for (int i = 0; i <= length; i++) {
 		array[i] = myrand(max);
 	}
 }
@@ -71,8 +72,10 @@ void randMatrix(char matrix[MATRIXSIZE][MATRIXSIZE], int length, int max) {
 }
 
 void countArray(const char* array, int length, char occurrence[256]) {
+	int c = 0;
 	for (int i = 0; (i + 1) < length; i++) {
-		occurrence[array[i]]++;
+		c = (int)array[i];
+		occurrence[c]++;
 	}
 	for (int i = 0; i < length; i++)
 	{
@@ -110,9 +113,10 @@ void setArray(char* array, int length, char value) {
 
 void readInputAsString(char* array, int length) { 
 	setArray(array, 25, 0);
-	printf("Please Enter a String ");
-	scanf_s("%s", &array);				//??? Übergabe in array
-	printArray(array, length);
+	printf("Please Enter a String: ");
+	//scanf_s("%[^\n]", &array);				//??? Übergabe in array runtime error
+	gets(array);
+	printArrayOfChars(array, length);
 }
 
 void toUpperCase(char* array, int length) {
