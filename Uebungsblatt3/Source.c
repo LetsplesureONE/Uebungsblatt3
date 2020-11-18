@@ -26,7 +26,7 @@ int main(void) {
 	//aufgabe2a();
 	//aufgabe2b();
 	//aufgabe2c();
-	aufgabe2d();
+	//aufgabe2d();
 	//aufgabe2e();
 	//aufgabe3a();
 	//aufgabe3b();
@@ -35,7 +35,7 @@ int main(void) {
 	//aufgabe3e();
 	//aufgabe3f();
 	//aufgabe3i();
-	//aufgabe4();
+	aufgabe4();
 	return 0;
 }
 
@@ -131,8 +131,14 @@ void aufgabe3i(void) {
 }
 
 void aufgabe4() {
-	int sudokutrue[9][9] = { {5,3,4,6,7,8,9,1,2}, {6,7,2,1,9,5,3,4,8}, {1,9,8,3,4,2,5,6,7}, {8,5,9,7,6,1,4,2,3}, {4,2,6,8,5,3,7,9,1}, {7,1,3,9,2,4,8,5,6}, {9,6,1,5,3,7,2,8,4}, {2,8,7,4,1,9,6,3,5}, {3,4,5,2,8,6,1,7,9} };
+	char sudokutrue[9][9] = { {5, 3, 4, 6, 7, 8, 9, 1, 2}, {6,7,2,1,9,5,3,4,8}, {1,9,8,3,4,2,5,6,7}, {8,5,9,7,6,1,4,2,3}, {4,2,6,8,5,3,7,9,1}, {7,1,3,9,2,4,8,5,6}, {9,6,1,5,3,7,2,8,4}, {2,8,7,4,1,9,6,3,5}, {3,4,5,2,8,6,1,7,9} };
+	//printMatrix(sudokutrue, 9, CHAR);
 	bool correct = sudokuTest(sudokutrue,9);
-	if (correct)printf("Jay deine Lösung erfüllt die Regeln\n");
+	if (correct)printf("Jay deine L\x94sung erf\x81llt die Regeln\n");
 	if (!correct)printf("Leider falsch versuche es erneut\n");
+	char sudokufalse[9][9] = { {5, 4, 4, 6, 7, 8, 9, 1, 2}, {6,7,2,1,9,5,3,4,8}, {1,9,2,3,4,2,5,6,7}, {8,5,9,7,6,1,4,2,3}, {4,2,6,8,5,3,7,9,1}, {7,1,3,9,2,4,8,5,6}, {9,6,1,5,3,7,2,8,4}, {2,8,7,4,1,9,6,3,5}, {3,4,5,2,8,6,1,7,9} };
+	//printMatrix(sudokutrue, 9, CHAR);
+	bool correct2 = sudokuTest(sudokufalse, 9);
+	if (correct2)printf("Jay deine L\x94sung erf\x81llt die Regeln\n");
+	if (!correct2)printf("Leider falsch versuche es erneut\n");
 }

@@ -114,9 +114,9 @@ void setArray(char* array, int length, char value) {
 void readInputAsString(char* array, int length) { 
 	setArray(array, 25, 0);
 	printf("Please Enter a String: ");
-	//scanf_s("%[^\n]", &array);				//??? Übergabe in array runtime error
+	//scanf_s("%[^\n]", &array);				//??? Übergabe in array runtime error solfed mit gets()
 	gets(array);
-	printArrayOfChars(array, length);
+	//printArrayOfChars(array, length); //debug
 }
 
 void toUpperCase(char* array, int length) {
