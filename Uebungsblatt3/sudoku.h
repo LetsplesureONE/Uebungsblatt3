@@ -34,9 +34,6 @@ int lineTest(const char matrix[Gridsize][Gridsize], int line, int length) {
 		{
 			dop++;
 		}
-		else {
-
-		}
 	}
 
 	if (dop > 0 || top > 0) {
@@ -97,9 +94,6 @@ int subfieldTest(const char matrix[Gridsize][Gridsize],int length, int xsubfield
 		if (doppel[j] > 1)
 		{
 			dop++;
-		}
-		else {
-
 		}
 	}
 

@@ -52,7 +52,7 @@ void printMatrix(const char matrix[MATRIXSIZE][MATRIXSIZE], int length, int type
 
 /* Aufgabe – Zufallszahlen */
 unsigned char myrand(int max) { 
-	//srand(32);
+	//srand(32);// schlechte Idee ;)
 	char c = (rand()%max);
 	return c;
 }
