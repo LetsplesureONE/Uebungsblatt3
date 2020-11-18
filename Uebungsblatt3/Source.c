@@ -1,5 +1,6 @@
 #include "global.h" 
 #include "sudoku.h"
+#include <stdbool.h>
 
 
 
